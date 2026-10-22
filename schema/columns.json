@@ -1,0 +1,263 @@
+[
+  {
+    "table": "nomes.csv",
+    "name": "name_id",
+    "type": "integer",
+    "description_en": "Id of the name in the 2023 database. Primary key.",
+    "description_pt": "Id do nome no banco de 2023. Chave primária.",
+    "standard": "—",
+    "origin": "source"
+  },
+  {
+    "table": "nomes.csv",
+    "name": "name",
+    "type": "string",
+    "description_en": "Given name as published on the site, capitalised (\"José\", \"Maria Júlia\").",
+    "description_pt": "Nome como publicado no site, com iniciais maiúsculas (\"José\", \"Maria Júlia\").",
+    "standard": "—",
+    "origin": "source"
+  },
+  {
+    "table": "nomes.csv",
+    "name": "meaning",
+    "type": "string",
+    "description_en": "Meaning of the name in Portuguese, written by an OpenAI model in 2023. Not checked by a person: may be wrong or invented. Paragraphs separated by a line break.",
+    "description_pt": "Significado do nome em português, escrito por um modelo da OpenAI em 2023. Não foi conferido por pessoa: pode estar errado ou ser inventado. Parágrafos separados por quebra de linha.",
+    "standard": "—",
+    "origin": "generated"
+  },
+  {
+    "table": "nomes.csv",
+    "name": "model",
+    "type": "string",
+    "description_en": "Model that wrote the text: `text-davinci-002` or `gpt-3.5`.",
+    "description_pt": "Modelo que escreveu o texto: `text-davinci-002` ou `gpt-3.5`.",
+    "standard": "—",
+    "origin": "source"
+  },
+  {
+    "table": "nomes.csv",
+    "name": "source",
+    "type": "string",
+    "description_en": "Where the name came from: `cnpj` (first name of company partners in the CNPJ register), `search` (searches \"significado do nome X\"), `ibge_variant` (a spelling listed by the IBGE API for another name).",
+    "description_pt": "De onde veio o nome: `cnpj` (primeiro nome de sócios no cadastro CNPJ), `search` (buscas \"significado do nome X\"), `ibge_variant` (grafia listada pela API do IBGE para outro nome).",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "nomes.csv",
+    "name": "cnpj_partners",
+    "type": "integer",
+    "description_en": "Number of company partners in the CNPJ register whose first name is this one (3 or more). Empty when the name did not come from the register.",
+    "description_pt": "Quantidade de sócios no cadastro CNPJ com esse primeiro nome (3 ou mais). Vazio quando o nome não veio do cadastro.",
+    "standard": "—",
+    "origin": "source"
+  },
+  {
+    "table": "nomes.csv",
+    "name": "ibge_rank",
+    "type": "integer",
+    "description_en": "Rank of the name in the IBGE 2010 Census name list (1 = most common). Empty when the API had no data.",
+    "description_pt": "Posição do nome na lista de nomes do Censo 2010 do IBGE (1 = mais comum). Vazio quando a API não tinha dado.",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment"
+  },
+  {
+    "table": "nomes.csv",
+    "name": "ibge_frequency",
+    "type": "integer",
+    "description_en": "People with exactly this spelling in the 2010 Census, as returned by the IBGE API.",
+    "description_pt": "Pessoas com exatamente essa grafia no Censo 2010, segundo a API do IBGE.",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment"
+  },
+  {
+    "table": "nomes.csv",
+    "name": "ibge_percent",
+    "type": "float",
+    "description_en": "Share of the population with the name, in percent.",
+    "description_pt": "Percentual da população com o nome.",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment"
+  },
+  {
+    "table": "nomes.csv",
+    "name": "ibge_top_state",
+    "type": "string",
+    "description_en": "State where the name is proportionally most common.",
+    "description_pt": "Estado (UF) onde o nome é proporcionalmente mais comum.",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment"
+  },
+  {
+    "table": "nomes.csv",
+    "name": "ibge_top_state_per_100k",
+    "type": "float",
+    "description_en": "People with the name per 100,000 inhabitants in that state.",
+    "description_pt": "Pessoas com o nome por 100 mil habitantes nesse estado.",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment"
+  },
+  {
+    "table": "nomes.csv",
+    "name": "ibge_spellings",
+    "type": "string (list)",
+    "description_en": "Related spellings the IBGE API lists for this name, separated by `|` (\"CAYQUE|KAIQUE|KAYQUE\"). Each has its own frequency.",
+    "description_pt": "Grafias relacionadas que a API do IBGE lista para esse nome, separadas por `|` (\"CAYQUE|KAIQUE|KAYQUE\"). Cada uma tem a própria frequência.",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment"
+  },
+  {
+    "table": "nomes.csv",
+    "name": "key_metaphone",
+    "type": "string",
+    "description_en": "Phonetic key: Portuguese Metaphone (port of pt_metaphone, Várzea Paulista 2008). Names with the same key sound alike.",
+    "description_pt": "Chave fonética: Metaphone português (porta do pt_metaphone de Várzea Paulista, 2008). Nomes com a mesma chave soam parecido.",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "nomes.csv",
+    "name": "key_fingerprint",
+    "type": "string",
+    "description_en": "OpenRefine fingerprint key as computed in 2023. The port had a bug that keeps only every other word, so in names with several words it holds half of them (see data-quality).",
+    "description_pt": "Chave fingerprint do OpenRefine como calculada em 2023. A porta tinha um bug que guarda só uma palavra sim, outra não; em nomes com várias palavras, metade delas some (ver data-quality).",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "nomes.csv",
+    "name": "key_tokens",
+    "type": "string",
+    "description_en": "Words reduced to their stem by the Brazilian stemmer (Lucene), in original order (\"Lucas\" → \"luc\").",
+    "description_pt": "Palavras reduzidas ao radical pelo stemmer brasileiro (Lucene), na ordem original (\"Lucas\" → \"luc\").",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "nomes.csv",
+    "name": "key_tokens_fingerprint",
+    "type": "string",
+    "description_en": "The stems of `key_tokens`, sorted.",
+    "description_pt": "Os radicais de `key_tokens`, em ordem alfabética.",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "nomes.csv",
+    "name": "key_ngram",
+    "type": "string",
+    "description_en": "Character 2-gram fingerprint (OpenRefine variant): the letter pairs of the name, sorted, deduplicated and joined.",
+    "description_pt": "Fingerprint de 2-gramas de caracteres (variante do OpenRefine): os pares de letras do nome, ordenados, sem repetição e juntados.",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "nomes.csv",
+    "name": "key_soft",
+    "type": "string",
+    "description_en": "Lower case, no accents, letters, digits and spaces only.",
+    "description_pt": "Minúsculas, sem acento, só letras, dígitos e espaços.",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "sobrenomes.csv",
+    "name": "surname_id",
+    "type": "integer",
+    "description_en": "Id of the surname in the 2023 database. Primary key.",
+    "description_pt": "Id do sobrenome no banco de 2023. Chave primária.",
+    "standard": "—",
+    "origin": "source"
+  },
+  {
+    "table": "sobrenomes.csv",
+    "name": "surname",
+    "type": "string",
+    "description_en": "Surname as it appears in the CNPJ register, capitalised. Accents follow the register, which often has none (\"Goncalves\").",
+    "description_pt": "Sobrenome como aparece no cadastro CNPJ, com inicial maiúscula. Acentos seguem o cadastro, que muitas vezes não tem (\"Goncalves\").",
+    "standard": "—",
+    "origin": "source"
+  },
+  {
+    "table": "sobrenomes.csv",
+    "name": "history",
+    "type": "string",
+    "description_en": "History and origin of the surname in Portuguese, written by an OpenAI model in 2023. Not checked by a person: may contain invented people, dates and places.",
+    "description_pt": "História e origem do sobrenome em português, escrita por um modelo da OpenAI em 2023. Não foi conferida por pessoa: pode trazer pessoas, datas e lugares inventados.",
+    "standard": "—",
+    "origin": "generated"
+  },
+  {
+    "table": "sobrenomes.csv",
+    "name": "model",
+    "type": "string",
+    "description_en": "Model that wrote the text: `text-davinci-002` or `gpt-3.5`.",
+    "description_pt": "Modelo que escreveu o texto: `text-davinci-002` ou `gpt-3.5`.",
+    "standard": "—",
+    "origin": "source"
+  },
+  {
+    "table": "sobrenomes.csv",
+    "name": "cnpj_partners",
+    "type": "integer",
+    "description_en": "Number of company partners in the CNPJ register whose name contains this surname (3 or more).",
+    "description_pt": "Quantidade de sócios no cadastro CNPJ cujo nome contém esse sobrenome (3 ou mais).",
+    "standard": "—",
+    "origin": "source"
+  },
+  {
+    "table": "sobrenomes.csv",
+    "name": "key_metaphone",
+    "type": "string",
+    "description_en": "Phonetic key: Portuguese Metaphone (port of pt_metaphone, Várzea Paulista 2008). Names with the same key sound alike.",
+    "description_pt": "Chave fonética: Metaphone português (porta do pt_metaphone de Várzea Paulista, 2008). Nomes com a mesma chave soam parecido.",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "sobrenomes.csv",
+    "name": "key_fingerprint",
+    "type": "string",
+    "description_en": "OpenRefine fingerprint key as computed in 2023. The port had a bug that keeps only every other word, so in names with several words it holds half of them (see data-quality).",
+    "description_pt": "Chave fingerprint do OpenRefine como calculada em 2023. A porta tinha um bug que guarda só uma palavra sim, outra não; em nomes com várias palavras, metade delas some (ver data-quality).",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "sobrenomes.csv",
+    "name": "key_tokens",
+    "type": "string",
+    "description_en": "Words reduced to their stem by the Brazilian stemmer (Lucene), in original order (\"Lucas\" → \"luc\").",
+    "description_pt": "Palavras reduzidas ao radical pelo stemmer brasileiro (Lucene), na ordem original (\"Lucas\" → \"luc\").",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "sobrenomes.csv",
+    "name": "key_tokens_fingerprint",
+    "type": "string",
+    "description_en": "The stems of `key_tokens`, sorted.",
+    "description_pt": "Os radicais de `key_tokens`, em ordem alfabética.",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "sobrenomes.csv",
+    "name": "key_ngram",
+    "type": "string",
+    "description_en": "Character 2-gram fingerprint (OpenRefine variant): the letter pairs of the name, sorted, deduplicated and joined.",
+    "description_pt": "Fingerprint de 2-gramas de caracteres (variante do OpenRefine): os pares de letras do nome, ordenados, sem repetição e juntados.",
+    "standard": "—",
+    "origin": "derived"
+  },
+  {
+    "table": "sobrenomes.csv",
+    "name": "key_soft",
+    "type": "string",
+    "description_en": "Lower case, no accents, letters, digits and spaces only.",
+    "description_pt": "Minúsculas, sem acento, só letras, dígitos e espaços.",
+    "standard": "—",
+    "origin": "derived"
+  }
+]

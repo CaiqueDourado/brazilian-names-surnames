@@ -1,0 +1,39 @@
+{
+  "slug": "nomes-e-sobrenomes-brasil",
+  "title": "Brazilian given names and surnames: frequency, IBGE data and AI-written meanings",
+  "title_pt": "Nomes e sobrenomes do Brasil: frequência, dados do IBGE e significados escritos por IA",
+  "kaggle_user": "caiquedourado",
+  "kaggle_title": "Nomes e Sobrenomes do Brasil (pt-BR)",
+  "kaggle_subtitle": "47k given names and 27k surnames: CNPJ counts, IBGE Census data, GPT meanings",
+  "kaggle_description_file": "docs/kaggle-description.md",
+  "kaggle_license": "Attribution 4.0 International (CC BY 4.0)",
+  "keywords": [
+    "brazil",
+    "nlp",
+    "tabular"
+  ],
+  "tables": [
+    {
+      "file": "nomes.csv",
+      "description": "One row per given name (46,840): meaning written by GPT, CNPJ partner count, IBGE 2010 Census frequency and phonetic keys.",
+      "description_pt": "Uma linha por nome (46.840): significado escrito pelo GPT, contagem de sócios no CNPJ, frequência no Censo 2010 do IBGE e chaves fonéticas."
+    },
+    {
+      "file": "sobrenomes.csv",
+      "description": "One row per surname (27,047): history written by GPT, CNPJ partner count and phonetic keys.",
+      "description_pt": "Uma linha por sobrenome (27.047): história escrita pelo GPT, contagem de sócios no CNPJ e chaves fonéticas."
+    }
+  ],
+  "conventions": [
+    "- Encoding UTF-8 without BOM, comma separated, header in the first line. Texts may contain line breaks inside quoted cells.",
+    "- Lists inside a cell use `|` as separator.",
+    "- Empty cell = unknown or not applicable. Decimal point is `.`.",
+    "- `meaning` and `history` were written by language models and never reviewed by a person. Use them as examples of model output, not as facts."
+  ],
+  "conventions_pt": [
+    "- Codificação UTF-8 sem BOM, separador vírgula, cabeçalho na primeira linha. Textos podem ter quebra de linha dentro de células entre aspas.",
+    "- Listas dentro de uma célula usam `|` como separador.",
+    "- Célula vazia = desconhecido ou não se aplica. Separador decimal é o ponto `.`.",
+    "- `meaning` e `history` foram escritos por modelos de linguagem e nunca revisados por pessoa. Use como exemplo de saída de modelo, não como fato."
+  ]
+}

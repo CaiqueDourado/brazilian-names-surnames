@@ -1,0 +1,46 @@
+{
+  "names": {
+    "sentences_repeated_removed": 5,
+    "texts_with_repetition_fixed": 4,
+    "rows_exported": 172179,
+    "removed": {
+      "company_word": 17,
+      "english": 44,
+      "no_text": 82975,
+      "not_a_name": 147,
+      "refusal": 42078
+    },
+    "spellings_fixed": 4,
+    "accent_variants_merged": 78,
+    "rows_published": 46840,
+    "by_model": {
+      "gpt-3.5": 28876,
+      "text-davinci-002": 17964
+    },
+    "by_source": {
+      "cnpj": 41830,
+      "ibge_variant": 2207,
+      "search": 2803
+    }
+  },
+  "surnames": {
+    "below_partner_cut_with_text": 2667,
+    "sentences_repeated_removed": 6220,
+    "texts_with_repetition_fixed": 433,
+    "rows_exported": 218835,
+    "removed": {
+      "company_word": 17,
+      "english": 1263,
+      "no_text": 188821,
+      "not_a_name": 173,
+      "refusal": 1513
+    },
+    "spellings_fixed": 0,
+    "accent_variants_merged": 1,
+    "rows_published": 27047,
+    "by_model": {
+      "gpt-3.5": 11925,
+      "text-davinci-002": 15122
+    }
+  }
+}

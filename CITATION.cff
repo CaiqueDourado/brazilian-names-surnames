@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+type: dataset
+title: "Nomes e sobrenomes do Brasil: Brazilian given names and surnames with CNPJ counts, IBGE Census data and AI-written meanings"
+authors:
+  - family-names: Dourado
+    given-names: Caique
+version: 1.0.0
+date-released: 2026-10-21
+license: CC-BY-4.0
+repository-code: "https://github.com/CaiqueDourado/nomes-e-sobrenomes-brasil"
+url: "https://www.kaggle.com/datasets/caiquedourado/nomes-e-sobrenomes-brasil"
+keywords:
+  - names
+  - surnames
+  - brazil
+  - ibge
+  - portuguese
+  - llm-hallucination
