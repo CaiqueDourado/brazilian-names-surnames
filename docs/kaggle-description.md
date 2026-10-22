@@ -5,6 +5,12 @@ This is the database behind nomessobrenomes.com, a 90,000-page static site built
 - **A list of Brazilian names with real frequencies**: how many company partners in the CNPJ register share each name or surname, plus IBGE Census rank, frequency, the state where the name is most common, the related spellings IBGE lists for it, how many women and men carry it and in which decade they were born. The README explains the IBGE names API, with sample calls; the data was fetched with the open-source client [ibge-nomes](https://github.com/CaiqueDourado/ibge-nomes).
 - **A corpus of language-model output about names**: every row carries a meaning (names) or family history (surnames) written by text-davinci-002 or gpt-3.5, with the model named. Nobody reviewed them. Many are wrong in instructive ways: Araken "of Japanese origin" (it is Tupi), the city of Cerqueira César "in the north of Portugal" (it is in São Paulo), an invented 1573 genealogy for the Carrero family.
 
+## How it was built
+
+![How the dataset was built](https://raw.githubusercontent.com/CaiqueDourado/nomes-e-sobrenomes-brasil/main/docs/img/flow.png)
+
+Given names are the first word of company partners' names in the CNPJ register, plus names people searched for ("significado do nome X"); surnames are the other words. Each name was looked up in IBGE's names API (2010 Census) and a language model wrote a meaning or family history; a cleaning script removed refusals and errors before publishing.
+
 ## Files
 
 - `nomes.csv` / `nomes.parquet`: 46,840 given names, 31 columns.

@@ -1,0 +1,10 @@
+flowchart LR
+    K["Buscas<br/>significado do nome X"] --> N
+    A["Cadastro CNPJ<br/>nome dos sócios"] -->|"primeira palavra"| N["Nomes"]
+    A -->|"demais palavras"| S["Sobrenomes"]
+    N --> C["API do IBGE<br/>frequência, estado,<br/>sexo, década"]
+    N --> D["GPT<br/>significado e história"]
+    S --> D
+    C --> E["Limpeza<br/>tira recusas e erros"]
+    D --> E
+    E --> F["Base publicada<br/>GitHub · Kaggle"]
