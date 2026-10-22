@@ -5,8 +5,8 @@ title: "Nomes e sobrenomes do Brasil: Brazilian given names and surnames with CN
 authors:
   - family-names: Dourado
     given-names: Caique
-version: 1.0.0
-date-released: 2026-10-21
+version: 1.1.0
+date-released: 2026-10-22
 license: CC-BY-4.0
 repository-code: "https://github.com/CaiqueDourado/nomes-e-sobrenomes-brasil"
 url: "https://www.kaggle.com/datasets/caiquedourado/nomes-e-sobrenomes-brasil"

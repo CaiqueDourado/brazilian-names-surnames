@@ -38,6 +38,7 @@ Use the texts to study what language models write about names (style, made-up et
 ## Known limitations (kept as they are)
 
 - **`key_fingerprint` has the 2023 bug.** The C# port of OpenRefine's fingerprint keyer skipped every other word while joining, so `Larissa no Amor` has the key `amor no`. It only matters for names with several words (2,390 rows, all affected). The bug and a fixed keyer are in [DedupKit](https://github.com/CaiqueDourado/DedupKit) (`legacy_fingerprint` reproduces it, `fingerprint` is correct). `key_ngram` keeps spaces inside the letter pairs, unlike OpenRefine.
+- **Sex and decade cover 17,200 names.** The v2 endpoint answered for 17,200 of the 24,751 names with an IBGE rank. Decades and sexes without a published count are empty, so the decade columns add up to less than `ibge_frequency` for rare and old-fashioned names (median 96%).
 - **Surnames without accents.** The CNPJ register is mostly written without accents, so `Goncalves`, `Guimaraes`, `Conceicao` appear as such.
 - **Surnames are words, not always surnames.** Second given names (`Aparecida`, `Aparecido`, `Lourdes`) and suffixes (`Filho`, `Neto`, `Junior`) are among the most frequent "surnames", as they are in the register.
 - **The CNPJ count is not population.** `cnpj_partners` counts company partners, who are adults and skew towards some regions and ages. For population use `ibge_frequency` (2010 Census).

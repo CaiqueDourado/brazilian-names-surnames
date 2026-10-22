@@ -20,6 +20,19 @@ Uma linha por nome (46.840): significado escrito pelo GPT, contagem de sócios n
 | `ibge_top_state` | string | 61,3% | `Rio Grande do Sul` | Estado (UF) onde o nome é proporcionalmente mais comum. | IBGE Nomes | enriquecimento |
 | `ibge_top_state_per_100k` | float | 61,3% | `1.0754` | Pessoas com o nome por 100 mil habitantes nesse estado. | IBGE Nomes | enriquecimento |
 | `ibge_spellings` | string (list) | 62,2% | `LEUNICE` | Grafias relacionadas que a API do IBGE lista para esse nome, separadas por `\|` ("CAYQUE\|KAIQUE\|KAYQUE"). Cada uma tem a própria frequência. | IBGE Nomes | enriquecimento |
+| `ibge_female` | integer | 77,9% | `1496` | Mulheres com essa grafia no Censo 2010 (soma das décadas do endpoint v2 com `sexo=F`). | IBGE Nomes | enriquecimento |
+| `ibge_male` | integer | 79,5% | `15280` | Homens com essa grafia no Censo 2010 (endpoint v2 com `sexo=M`). | IBGE Nomes | enriquecimento |
+| `ibge_share_female` | float | 63,3% | `1.0` | `ibge_female / (ibge_female + ibge_male)`, de 0 a 1. | IBGE Nomes | enriquecimento |
+| `ibge_peak_decade` | string | 62,6% | `2000s` | Década de nascimento com mais pessoas com essa grafia (`before_1930`, `1930s` … `2000s`). | IBGE Nomes | enriquecimento |
+| `ibge_born_before_1930` | integer | 91,5% | `2111` | Pessoas com essa grafia nascidas antes de 1930, vivas em 2010 (endpoint v2). | IBGE Nomes | enriquecimento |
+| `ibge_born_1930s` | integer | 86,8% | `67` | Pessoas com essa grafia nascidas na década de 1930, vivas em 2010 (endpoint v2). | IBGE Nomes | enriquecimento |
+| `ibge_born_1940s` | integer | 83,3% | `85` | Pessoas com essa grafia nascidas na década de 1940, vivas em 2010 (endpoint v2). | IBGE Nomes | enriquecimento |
+| `ibge_born_1950s` | integer | 80,2% | `150` | Pessoas com essa grafia nascidas na década de 1950, vivas em 2010 (endpoint v2). | IBGE Nomes | enriquecimento |
+| `ibge_born_1960s` | integer | 77,1% | `32` | Pessoas com essa grafia nascidas na década de 1960, vivas em 2010 (endpoint v2). | IBGE Nomes | enriquecimento |
+| `ibge_born_1970s` | integer | 74,6% | `42` | Pessoas com essa grafia nascidas na década de 1970, vivas em 2010 (endpoint v2). | IBGE Nomes | enriquecimento |
+| `ibge_born_1980s` | integer | 72,0% | `73` | Pessoas com essa grafia nascidas na década de 1980, vivas em 2010 (endpoint v2). | IBGE Nomes | enriquecimento |
+| `ibge_born_1990s` | integer | 73,1% | `6438` | Pessoas com essa grafia nascidas na década de 1990, vivas em 2010 (endpoint v2). | IBGE Nomes | enriquecimento |
+| `ibge_born_2000s` | integer | 77,4% | `33` | Pessoas com essa grafia nascidas na década de 2000, vivas em 2010 (endpoint v2). | IBGE Nomes | enriquecimento |
 | `key_metaphone` | string | 0,0% | `JRTRLD` | Chave fonética: Metaphone português (porta do pt_metaphone de Várzea Paulista, 2008). Nomes com a mesma chave soam parecido. | — | derivado |
 | `key_fingerprint` | string | 0,0% | `gertraude` | Chave fingerprint do OpenRefine como calculada em 2023. A porta tinha um bug que guarda só uma palavra sim, outra não; em nomes com várias palavras, metade delas some (ver data-quality). | — | derivado |
 | `key_tokens` | string | 0,6% | `tem` | Palavras reduzidas ao radical pelo stemmer brasileiro (Lucene), na ordem original ("Lucas" → "luc"). | — | derivado |

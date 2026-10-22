@@ -59,6 +59,17 @@ def main() -> int:
     bad = sorted(set(names["ibge_top_state"].dropna()) - states)
     check(not bad, f"nomes: unknown states {bad}")
     check(not names["ibge_spellings"].dropna().str.contains(",").any(), "nomes: ibge_spellings must use | as separator")
+    if "ibge_female" in names.columns:  # sex and decade columns from raw/ibge_v2.csv
+        check(names["ibge_share_female"].dropna().between(0, 1).all(), "nomes: ibge_share_female outside 0-1")
+        decades = ["before_1930", "1930s", "1940s", "1950s", "1960s", "1970s", "1980s", "1990s", "2000s"]
+        check(set(names["ibge_peak_decade"].dropna()) <= set(decades), "nomes: unexpected ibge_peak_decade")
+        born = names[[f"ibge_born_{d}" for d in decades]]
+        has = names["ibge_female"].notna() & names["ibge_male"].notna() & born.notna().all(axis=1)
+        sexes = names.loc[has, "ibge_female"] + names.loc[has, "ibge_male"]
+        total = born[has].sum(axis=1)
+        off = ((sexes - total).abs() > total * 0.05 + 20).sum()
+        check(off <= len(total) * 0.05, f"nomes: women + men far from the decade total in {off} names")
+        check(names.loc[~names["ibge_rank"].notna(), "ibge_female"].isna().all(), "nomes: sex data for a name without IBGE rank")
     for df, stem in ((names, "nomes"), (surnames, "sobrenomes")):
         check(df["key_metaphone"].notna().mean() > 0.99, f"{stem}: key_metaphone mostly empty")
 

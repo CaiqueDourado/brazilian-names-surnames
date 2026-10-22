@@ -2,6 +2,12 @@
 
 All notable changes to this dataset are documented here. Versions follow [Semantic Versioning](https://semver.org/): a new major version renames or removes columns.
 
+## [1.1.0] - 2026-10-22
+
+### Added
+- 13 columns in `nomes`: women, men, share of women, decade with most births and people born per decade (before 1930 to the 2000s), from the v2 endpoint of IBGE's names API, fetched with [ibge-nomes](https://github.com/CaiqueDourado/ibge-nomes) (`scripts/fetch_ibge.py`, answers summarised in `raw/ibge_v2.csv`). 17,200 of the 24,751 names with an IBGE rank have them.
+- README: process flowchart, the story and technique of nomessobrenomes.com, the IBGE names API explained with sample calls.
+
 ## [1.0.0] - 2026-10-21
 
 ### Added

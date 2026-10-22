@@ -12,6 +12,7 @@
     },
     "spellings_fixed": 4,
     "accent_variants_merged": 78,
+    "ibge_v2_names": 17200,
     "rows_published": 46840,
     "by_model": {
       "gpt-3.5": 28876,

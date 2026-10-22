@@ -109,6 +109,136 @@
   },
   {
     "table": "nomes.csv",
+    "name": "ibge_female",
+    "type": "integer",
+    "description_en": "Women with this spelling in the 2010 Census (sum over decades of the v2 endpoint with `sexo=F`).",
+    "description_pt": "Mulheres com essa grafia no Censo 2010 (soma das décadas do endpoint v2 com `sexo=F`).",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment",
+    "optional": true
+  },
+  {
+    "table": "nomes.csv",
+    "name": "ibge_male",
+    "type": "integer",
+    "description_en": "Men with this spelling in the 2010 Census (v2 endpoint with `sexo=M`).",
+    "description_pt": "Homens com essa grafia no Censo 2010 (endpoint v2 com `sexo=M`).",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment",
+    "optional": true
+  },
+  {
+    "table": "nomes.csv",
+    "name": "ibge_share_female",
+    "type": "float",
+    "description_en": "`ibge_female / (ibge_female + ibge_male)`, 0 to 1.",
+    "description_pt": "`ibge_female / (ibge_female + ibge_male)`, de 0 a 1.",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment",
+    "optional": true
+  },
+  {
+    "table": "nomes.csv",
+    "name": "ibge_peak_decade",
+    "type": "string",
+    "description_en": "Decade of birth with the most people with this spelling (`before_1930`, `1930s` … `2000s`).",
+    "description_pt": "Década de nascimento com mais pessoas com essa grafia (`before_1930`, `1930s` … `2000s`).",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment",
+    "optional": true
+  },
+  {
+    "table": "nomes.csv",
+    "name": "ibge_born_before_1930",
+    "type": "integer",
+    "description_en": "People with this spelling born before 1930, alive in 2010 (v2 endpoint).",
+    "description_pt": "Pessoas com essa grafia nascidas antes de 1930, vivas em 2010 (endpoint v2).",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment",
+    "optional": true
+  },
+  {
+    "table": "nomes.csv",
+    "name": "ibge_born_1930s",
+    "type": "integer",
+    "description_en": "People with this spelling born in the 1930s, alive in 2010 (v2 endpoint).",
+    "description_pt": "Pessoas com essa grafia nascidas na década de 1930, vivas em 2010 (endpoint v2).",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment",
+    "optional": true
+  },
+  {
+    "table": "nomes.csv",
+    "name": "ibge_born_1940s",
+    "type": "integer",
+    "description_en": "People with this spelling born in the 1940s, alive in 2010 (v2 endpoint).",
+    "description_pt": "Pessoas com essa grafia nascidas na década de 1940, vivas em 2010 (endpoint v2).",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment",
+    "optional": true
+  },
+  {
+    "table": "nomes.csv",
+    "name": "ibge_born_1950s",
+    "type": "integer",
+    "description_en": "People with this spelling born in the 1950s, alive in 2010 (v2 endpoint).",
+    "description_pt": "Pessoas com essa grafia nascidas na década de 1950, vivas em 2010 (endpoint v2).",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment",
+    "optional": true
+  },
+  {
+    "table": "nomes.csv",
+    "name": "ibge_born_1960s",
+    "type": "integer",
+    "description_en": "People with this spelling born in the 1960s, alive in 2010 (v2 endpoint).",
+    "description_pt": "Pessoas com essa grafia nascidas na década de 1960, vivas em 2010 (endpoint v2).",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment",
+    "optional": true
+  },
+  {
+    "table": "nomes.csv",
+    "name": "ibge_born_1970s",
+    "type": "integer",
+    "description_en": "People with this spelling born in the 1970s, alive in 2010 (v2 endpoint).",
+    "description_pt": "Pessoas com essa grafia nascidas na década de 1970, vivas em 2010 (endpoint v2).",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment",
+    "optional": true
+  },
+  {
+    "table": "nomes.csv",
+    "name": "ibge_born_1980s",
+    "type": "integer",
+    "description_en": "People with this spelling born in the 1980s, alive in 2010 (v2 endpoint).",
+    "description_pt": "Pessoas com essa grafia nascidas na década de 1980, vivas em 2010 (endpoint v2).",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment",
+    "optional": true
+  },
+  {
+    "table": "nomes.csv",
+    "name": "ibge_born_1990s",
+    "type": "integer",
+    "description_en": "People with this spelling born in the 1990s, alive in 2010 (v2 endpoint).",
+    "description_pt": "Pessoas com essa grafia nascidas na década de 1990, vivas em 2010 (endpoint v2).",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment",
+    "optional": true
+  },
+  {
+    "table": "nomes.csv",
+    "name": "ibge_born_2000s",
+    "type": "integer",
+    "description_en": "People with this spelling born in the 2000s, alive in 2010 (v2 endpoint).",
+    "description_pt": "Pessoas com essa grafia nascidas na década de 2000, vivas em 2010 (endpoint v2).",
+    "standard": "IBGE Nomes",
+    "origin": "enrichment",
+    "optional": true
+  },
+  {
+    "table": "nomes.csv",
     "name": "key_metaphone",
     "type": "string",
     "description_en": "Phonetic key: Portuguese Metaphone (port of pt_metaphone, Várzea Paulista 2008). Names with the same key sound alike.",

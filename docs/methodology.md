@@ -4,7 +4,18 @@ How the data was collected in 2023 for the site **nomessobrenomes.com**, and how
 
 ## The site
 
-Nomes e Sobrenomes (2023) was a static site of about 90,000 pages: one page per given name ("Qual o significado do nome X?"), one per surname ("Qual a história e origem do sobrenome X?") and a blog post per state with its 100 most common names. Everything came out of one SQL Server database (`significado_dos_nomes`) and a C# generator that wrote plain HTML files, banners and JSON-LD (FAQ, ItemList, Breadcrumbs, Article). An archived page: [qual-o-significado-do-nome-alan-gustavo](https://web.archive.org/web/20250610174857/https://nomessobrenomes.com/qual-o-significado-do-nome-alan-gustavo).
+Nomes e Sobrenomes (2023) was a programmatic SEO site of about 90,000 static pages: one per given name ("Qual o significado do nome X?"), one per surname ("Qual a história e origem do sobrenome X?") and a blog post per state with its 100 most common names by IBGE frequency, illustrated with the state flag. An archived page: [qual-o-significado-do-nome-alan-gustavo](https://web.archive.org/web/20250610174857/https://nomessobrenomes.com/qual-o-significado-do-nome-alan-gustavo).
+
+How it was put together:
+
+- **One database, one generator.** Everything came out of the SQL Server database `significado_dos_nomes` and the author's CMS tables (`SourcePost`, `SourcePostSection`, `SourceBlogPost`). A C# generator wrote each page as a plain HTML file; nothing ran on a server when a visitor opened a page.
+- **Hosting.** The files were served from **Google Cloud Storage** as a static website: serverless, no machine to maintain, and it scales with traffic at storage prices.
+- **Speed.** Static HTML without a client-side framework: 100% mobile-friendly and top **Core Web Vitals** scores.
+- **Structured data.** Every page carried **JSON-LD**: `FAQPage` (the questions about the name), `ItemList` (similar names, top names per state), `WebSite`, `BreadcrumbList` and `Article`.
+- **Images.** A C# routine drew a banner for each name, in story and post formats for social networks; state posts used the state flag.
+- **Similar names.** The six keys (item 5 below) linked each page to names that sound or are written alike.
+- **Quality control of the model text, in SQL.** Before publishing, queries looked for refusals and model talk, answers in English, stock phrases (n-grams of 2 to 5 words repeated across thousands of answers), words and sentences repeated in a loop (collapsed with `ReplaceAllOccurrences`), and answers cut by the token limit (trimmed back to the last full sentence). Some answers were fixed by hand, such as the invented genealogy of the Carrero family.
+- **URLs.** Slugs were made from the title, numbered on collision; since pages were files on disk, Windows reserved names (`con`, `prn`) and characters such as `*` and `.` were escaped.
 
 ## 2023: where each column came from
 
@@ -12,7 +23,7 @@ Nomes e Sobrenomes (2023) was a static site of about 90,000 pages: one page per 
 flowchart LR
     A[CNPJ register<br/>company partners] -->|first word, 3+ people| N[nomes]
     A -->|other words, 2+ people| S[sobrenomes]
-    B[Searches<br/>"significado do nome X"] --> N
+    B["Searches<br/>significado do nome X"] --> N
     N -->|name| I[IBGE Nomes API<br/>2010 Census]
     I -->|rank, frequency, top state| N
     I -->|other spellings| N
@@ -61,14 +72,36 @@ What each field means and how it was handled:
 | `ufMax` | `ibge_top_state` | State where the name has the highest share of the population (not the largest count) | Empty string → empty |
 | `ufMaxProp` | `ibge_top_state_per_100k` | People with the name per 100,000 inhabitants of that state | Float |
 | `nomes` | `ibge_spellings` | Related spellings IBGE lists for the name | `,` → `\|` |
-| `regiao` | — | Region of the query (0 = Brazil) | Always 0, because the call had no region filter; left out |
-| `sexo` | — | Sex of the query | Always empty, because the call had no sex filter; left out |
+| `regiao` | — | Echo of the region filter of the query (0 = Brazil) | Always 0, because the call had no region filter; left out |
+| `sexo` | — | Echo of the sex filter of the query | Always empty, because the call had no sex filter; left out |
 
 Things to know when using these columns:
 
 - **Each spelling is counted on its own.** Caique has 50,902 people, Kaique 43,883, Cayque 475; `ibge_spellings` only links them. To count everyone with any spelling of a name, add up the frequencies of the spellings listed.
 - **Coverage.** 47% of the published names have no IBGE data: the API returns an empty list for names it does not have (rare spellings, compound names such as `Maria Júlia`: none of the 2,390 compound names has IBGE data, since the Census counts first names only).
-- **Not used in 2023.** The API also answers by sex and by region, and other endpoints give the frequency by decade of birth. The 2023 calls did not use them, which is why `regiao` and `sexo` carry no information. Filling them in is the natural next version.
+
+### Sex and decade of birth (2026)
+
+The 2023 routine only used the basic endpoint, so sex was never filled. For this release the v2 endpoint was called with [ibge-nomes](https://github.com/CaiqueDourado/ibge-nomes), a Python client written for it (`scripts/fetch_ibge.py`):
+
+```text
+GET https://servicodados.ibge.gov.br/api/v2/censos/nomes/<name1|name2|…>             all people
+GET https://servicodados.ibge.gov.br/api/v2/censos/nomes/<name1|name2|…>?sexo=F      women
+GET https://servicodados.ibge.gov.br/api/v2/censos/nomes/<name1|name2|…>?sexo=M      men
+```
+
+Each answer lists, per name, the people born in each period: `1930[` (before 1930), `[1930,1940[` … `[2000,2010[`. Only names with `ibge_rank` were asked (the others have no Census data), 20 names per call, three calls per batch, with the raw answers cached so a stopped run resumes without new calls. The client sums the periods and `scripts/fetch_ibge.py` writes one row per name to `raw/ibge_v2.csv` (committed); `scripts/build.py` adds the columns:
+
+| Column | From |
+|---|---|
+| `ibge_female`, `ibge_male` | Sum of the periods with `sexo=F` and `sexo=M` |
+| `ibge_share_female` | `ibge_female / (ibge_female + ibge_male)` |
+| `ibge_born_before_1930` … `ibge_born_2000s` | The periods of the call without a sex filter |
+| `ibge_peak_decade` | The period with the most people |
+
+Result: 24,751 names asked, **17,200 with an answer**; the v2 endpoint has nothing for the other 7,551, although v1 had a rank for them. A decade, or one sex, missing from the answer means IBGE published no count there (zero or few people): the column stays empty, and `ibge_share_female` is computed from what was published (0 when only men were counted). Added up, the decades give a median of 96% of `ibge_frequency` (v1), and less for names whose early decades are not published.
+
+These are people alive at the 2010 Census, so older decades are smaller partly because of deaths, not only because the name was rarer. Women plus men may differ from the decade total for rare names; `scripts/validate.py` checks that they agree within 5% for at least 95% of the names.
 
 ## 2026: building this release
 

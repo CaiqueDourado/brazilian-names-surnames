@@ -101,6 +101,8 @@ def main() -> None:
     columns = load_json(ROOT / "schema" / "columns.json")
     tables = {t["file"]: pd.read_parquet(ROOT / "data" / (Path(t["file"]).stem + ".parquet")) for t in meta["tables"]}
     for table in meta["tables"]:
+        present = set(tables[table["file"]].columns)
+        columns = [c for c in columns if not (c.get("optional") and c.get("table") == table["file"] and c["name"] not in present)]
         names = [c["name"] for c in columns if c.get("table", meta["tables"][0]["file"]) == table["file"]]
         if names != list(tables[table["file"]].columns):
             raise SystemExit(f"schema/columns.json is out of sync with data/{table['file']}")

@@ -194,7 +194,30 @@ def build_names(raw: pd.DataFrame, stats: dict) -> pd.DataFrame:
     })
     for col in ("name_id", "cnpj_partners", "ibge_rank", "ibge_frequency"):
         out[col] = out[col].astype("Int64")
+    out = add_sex_and_decades(out, stats)
     return out.sort_values("name_id").reset_index(drop=True)
+
+
+DECADES = ["before_1930", "1930s", "1940s", "1950s", "1960s", "1970s", "1980s", "1990s", "2000s"]
+IBGE_V2 = ROOT / "raw" / "ibge_v2.csv"
+
+
+def add_sex_and_decades(out: pd.DataFrame, stats: dict) -> pd.DataFrame:
+    """Columns from IBGE's v2 endpoint (raw/ibge_v2.csv, written by scripts/fetch_ibge.py), placed
+    after the other ibge_* columns. Missing file = the 2023 columns only."""
+    if not IBGE_V2.exists():
+        return out
+    v2 = pd.read_csv(IBGE_V2, dtype={"name": str}).drop_duplicates("name").set_index("name")
+    new = pd.DataFrame(index=out.index)
+    new["ibge_female"] = out["name"].map(v2["female"]).astype("Int64")
+    new["ibge_male"] = out["name"].map(v2["male"]).astype("Int64")
+    new["ibge_share_female"] = out["name"].map(v2["share_female"]).astype("float64")
+    new["ibge_peak_decade"] = out["name"].map(v2["peak_decade"]).astype("string").replace({pd.NA: None})
+    for decade in DECADES:
+        new[f"ibge_born_{decade}"] = out["name"].map(v2[f"born_{decade}"]).astype("Int64")
+    stats["ibge_v2_names"] = int(new[["ibge_female", "ibge_male"]].notna().any(axis=1).sum())
+    at = list(out.columns).index("ibge_spellings") + 1
+    return pd.concat([out.iloc[:, :at], new, out.iloc[:, at:]], axis=1)
 
 
 def build_surnames(raw: pd.DataFrame, stats: dict) -> pd.DataFrame:

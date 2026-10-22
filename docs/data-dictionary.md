@@ -20,6 +20,19 @@ One row per given name (46,840): meaning written by GPT, CNPJ partner count, IBG
 | `ibge_top_state` | string | 61.3% | `Rio Grande do Sul` | State where the name is proportionally most common. | IBGE Nomes | enrichment |
 | `ibge_top_state_per_100k` | float | 61.3% | `1.0754` | People with the name per 100,000 inhabitants in that state. | IBGE Nomes | enrichment |
 | `ibge_spellings` | string (list) | 62.2% | `LEUNICE` | Related spellings the IBGE API lists for this name, separated by `\|` ("CAYQUE\|KAIQUE\|KAYQUE"). Each has its own frequency. | IBGE Nomes | enrichment |
+| `ibge_female` | integer | 77.9% | `1496` | Women with this spelling in the 2010 Census (sum over decades of the v2 endpoint with `sexo=F`). | IBGE Nomes | enrichment |
+| `ibge_male` | integer | 79.5% | `15280` | Men with this spelling in the 2010 Census (v2 endpoint with `sexo=M`). | IBGE Nomes | enrichment |
+| `ibge_share_female` | float | 63.3% | `1.0` | `ibge_female / (ibge_female + ibge_male)`, 0 to 1. | IBGE Nomes | enrichment |
+| `ibge_peak_decade` | string | 62.6% | `2000s` | Decade of birth with the most people with this spelling (`before_1930`, `1930s` … `2000s`). | IBGE Nomes | enrichment |
+| `ibge_born_before_1930` | integer | 91.5% | `2111` | People with this spelling born before 1930, alive in 2010 (v2 endpoint). | IBGE Nomes | enrichment |
+| `ibge_born_1930s` | integer | 86.8% | `67` | People with this spelling born in the 1930s, alive in 2010 (v2 endpoint). | IBGE Nomes | enrichment |
+| `ibge_born_1940s` | integer | 83.3% | `85` | People with this spelling born in the 1940s, alive in 2010 (v2 endpoint). | IBGE Nomes | enrichment |
+| `ibge_born_1950s` | integer | 80.2% | `150` | People with this spelling born in the 1950s, alive in 2010 (v2 endpoint). | IBGE Nomes | enrichment |
+| `ibge_born_1960s` | integer | 77.1% | `32` | People with this spelling born in the 1960s, alive in 2010 (v2 endpoint). | IBGE Nomes | enrichment |
+| `ibge_born_1970s` | integer | 74.6% | `42` | People with this spelling born in the 1970s, alive in 2010 (v2 endpoint). | IBGE Nomes | enrichment |
+| `ibge_born_1980s` | integer | 72.0% | `73` | People with this spelling born in the 1980s, alive in 2010 (v2 endpoint). | IBGE Nomes | enrichment |
+| `ibge_born_1990s` | integer | 73.1% | `6438` | People with this spelling born in the 1990s, alive in 2010 (v2 endpoint). | IBGE Nomes | enrichment |
+| `ibge_born_2000s` | integer | 77.4% | `33` | People with this spelling born in the 2000s, alive in 2010 (v2 endpoint). | IBGE Nomes | enrichment |
 | `key_metaphone` | string | 0.0% | `JRTRLD` | Phonetic key: Portuguese Metaphone (port of pt_metaphone, Várzea Paulista 2008). Names with the same key sound alike. | — | derived |
 | `key_fingerprint` | string | 0.0% | `gertraude` | OpenRefine fingerprint key as computed in 2023. The port had a bug that keeps only every other word, so in names with several words it holds half of them (see data-quality). | — | derived |
 | `key_tokens` | string | 0.6% | `tem` | Words reduced to their stem by the Brazilian stemmer (Lucene), in original order ("Lucas" → "luc"). | — | derived |

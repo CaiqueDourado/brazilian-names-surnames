@@ -2,12 +2,12 @@
 
 This is the database behind nomessobrenomes.com, a 90,000-page static site built by the author in 2023. It works two ways:
 
-- **A list of Brazilian names with real frequencies**: how many company partners in the CNPJ register share each name or surname, plus IBGE Census rank, frequency, the state where the name is most common, and the related spellings IBGE lists for it. The README explains the IBGE names API used, with a sample call.
+- **A list of Brazilian names with real frequencies**: how many company partners in the CNPJ register share each name or surname, plus IBGE Census rank, frequency, the state where the name is most common, the related spellings IBGE lists for it, how many women and men carry it and in which decade they were born. The README explains the IBGE names API, with sample calls; the data was fetched with the open-source client [ibge-nomes](https://github.com/CaiqueDourado/ibge-nomes).
 - **A corpus of language-model output about names**: every row carries a meaning (names) or family history (surnames) written by text-davinci-002 or gpt-3.5, with the model named. Nobody reviewed them. Many are wrong in instructive ways: Araken "of Japanese origin" (it is Tupi), the city of Cerqueira César "in the north of Portugal" (it is in São Paulo), an invented 1573 genealogy for the Carrero family.
 
 ## Files
 
-- `nomes.csv` / `nomes.parquet`: 46,840 given names, 18 columns.
+- `nomes.csv` / `nomes.parquet`: 46,840 given names, 31 columns.
 - `sobrenomes.csv` / `sobrenomes.parquet`: 27,047 surnames, 11 columns.
 
 Both tables have six keys for matching similar names: Portuguese Metaphone, OpenRefine fingerprint (with the 2023 bug documented), stems, character n-grams and a soft normalisation.
@@ -20,6 +20,7 @@ Methodology, data quality report, data dictionary (EN and PT) and the build and 
 
 ## Related datasets
 
+- [DedupKit](https://github.com/CaiqueDourado/DedupKit): matching library with the fixed fingerprint keyer and the Portuguese phonetic key
 - [Municípios e Estados do Brasil](https://www.kaggle.com/datasets/caiquedourado/municipios-e-estados-do-brasil)
 - [Catálogo de produtos do e-commerce brasileiro](https://www.kaggle.com/datasets/caiquedourado/catalogo-produtos-ecommerce-brasil)
 
