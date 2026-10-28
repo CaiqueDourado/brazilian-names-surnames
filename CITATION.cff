@@ -8,7 +8,7 @@ authors:
 version: 1.1.0
 date-released: 2026-10-22
 license: CC-BY-4.0
-repository-code: "https://github.com/CaiqueDourado/nomes-e-sobrenomes-brasil"
+repository-code: "https://github.com/CaiqueDourado/brazilian-names-surnames"
 url: "https://www.kaggle.com/datasets/caiquedourado/nomes-e-sobrenomes-brasil"
 keywords:
   - names

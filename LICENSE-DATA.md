@@ -11,7 +11,7 @@ changes were made.
 
 Suggested credit:
 
-> Nomes e sobrenomes do Brasil, by Caique Dourado, https://github.com/CaiqueDourado/nomes-e-sobrenomes-brasil, CC BY 4.0.
+> Nomes e sobrenomes do Brasil, by Caique Dourado, https://github.com/CaiqueDourado/brazilian-names-surnames, CC BY 4.0.
 
 Full legal code: https://creativecommons.org/licenses/by/4.0/legalcode
 

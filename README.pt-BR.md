@@ -1,6 +1,6 @@
 # Nomes e sobrenomes do Brasil
 
-[![validate](https://github.com/CaiqueDourado/nomes-e-sobrenomes-brasil/actions/workflows/validate.yml/badge.svg)](https://github.com/CaiqueDourado/nomes-e-sobrenomes-brasil/actions/workflows/validate.yml)
+[![validate](https://github.com/CaiqueDourado/brazilian-names-surnames/actions/workflows/validate.yml/badge.svg)](https://github.com/CaiqueDourado/brazilian-names-surnames/actions/workflows/validate.yml)
 [![Dados: CC BY 4.0](https://img.shields.io/badge/dados-CC%20BY%204.0-lightgrey.svg)](LICENSE-DATA.md)
 [![Código: MIT](https://img.shields.io/badge/c%C3%B3digo-MIT-blue.svg)](LICENSE)
 [![Kaggle](https://img.shields.io/badge/Kaggle-dataset-20BEFF.svg)](https://www.kaggle.com/datasets/caiquedourado/nomes-e-sobrenomes-brasil)
@@ -34,7 +34,7 @@ São 46.840 nomes e 27.047 sobrenomes brasileiros. Cada um traz quantos sócios 
 ```python
 import pandas as pd
 
-base = "https://raw.githubusercontent.com/CaiqueDourado/nomes-e-sobrenomes-brasil/main/data/"
+base = "https://raw.githubusercontent.com/CaiqueDourado/brazilian-names-surnames/main/data/"
 nomes = pd.read_parquet(base + "nomes.parquet")
 sobrenomes = pd.read_parquet(base + "sobrenomes.parquet")
 
@@ -177,7 +177,7 @@ A exportação do SQL Server não é redistribuída. Com ela, `python scripts/bu
 - [ibge-nomes](https://github.com/CaiqueDourado/ibge-nomes): o cliente usado na API de nomes do IBGE.
 - [DedupKit](https://github.com/CaiqueDourado/DedupKit): a biblioteca de casamento, com o fingerprint corrigido e a chave fonética em português.
 - [Municípios e estados do Brasil](https://github.com/CaiqueDourado/municipios-e-estados-do-brasil): códigos do IBGE, Censo e mapas, para os estados de `ibge_top_state`.
-- [Catálogo de produtos do e-commerce brasileiro](https://github.com/CaiqueDourado/catalogo-produtos-ecommerce-brasil), do mesmo data lake.
+- [Catálogo de produtos do e-commerce brasileiro](https://github.com/CaiqueDourado/brazilian-ecommerce-products), do mesmo data lake.
 
 ## Licença
 

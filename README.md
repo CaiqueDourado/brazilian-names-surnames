@@ -1,6 +1,6 @@
-# Nomes e sobrenomes do Brasil · Brazilian given names and surnames
+# Brazilian Names and Surnames · Nomes e sobrenomes do Brasil
 
-[![validate](https://github.com/CaiqueDourado/nomes-e-sobrenomes-brasil/actions/workflows/validate.yml/badge.svg)](https://github.com/CaiqueDourado/nomes-e-sobrenomes-brasil/actions/workflows/validate.yml)
+[![validate](https://github.com/CaiqueDourado/brazilian-names-surnames/actions/workflows/validate.yml/badge.svg)](https://github.com/CaiqueDourado/brazilian-names-surnames/actions/workflows/validate.yml)
 [![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-lightgrey.svg)](LICENSE-DATA.md)
 [![Code: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
 [![Kaggle](https://img.shields.io/badge/Kaggle-dataset-20BEFF.svg)](https://www.kaggle.com/datasets/caiquedourado/nomes-e-sobrenomes-brasil)
@@ -34,7 +34,7 @@ It is the database behind **nomessobrenomes.com**, a 90,000-page site the author
 ```python
 import pandas as pd
 
-base = "https://raw.githubusercontent.com/CaiqueDourado/nomes-e-sobrenomes-brasil/main/data/"
+base = "https://raw.githubusercontent.com/CaiqueDourado/brazilian-names-surnames/main/data/"
 names = pd.read_parquet(base + "nomes.parquet")
 surnames = pd.read_parquet(base + "sobrenomes.parquet")
 
@@ -170,7 +170,7 @@ The SQL Server export is not redistributed. With it, `python scripts/build.py --
 - [ibge-nomes](https://github.com/CaiqueDourado/ibge-nomes): the client used for the IBGE names API.
 - [DedupKit](https://github.com/CaiqueDourado/DedupKit): the matching library, with the fixed fingerprint keyer and the Portuguese phonetic key.
 - [Municípios e estados do Brasil](https://github.com/CaiqueDourado/municipios-e-estados-do-brasil): IBGE codes, Census and maps, for the state names in `ibge_top_state`.
-- [Catálogo de produtos do e-commerce brasileiro](https://github.com/CaiqueDourado/catalogo-produtos-ecommerce-brasil), from the same data lake.
+- [Catálogo de produtos do e-commerce brasileiro](https://github.com/CaiqueDourado/brazilian-ecommerce-products), from the same data lake.
 
 ## License
 

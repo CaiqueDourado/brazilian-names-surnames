@@ -7,7 +7,7 @@ This is the database behind nomessobrenomes.com, a 90,000-page static site built
 
 ## How it was built
 
-![How the dataset was built](https://raw.githubusercontent.com/CaiqueDourado/nomes-e-sobrenomes-brasil/main/docs/img/flow.png)
+![How the dataset was built](https://raw.githubusercontent.com/CaiqueDourado/brazilian-names-surnames/main/docs/img/flow.png)
 
 Given names are the first word of company partners' names in the CNPJ register, plus names people searched for ("significado do nome X"); surnames are the other words. Each name was looked up in IBGE's names API (2010 Census) and a language model wrote a meaning or family history; a cleaning script removed refusals and errors before publishing.
 
@@ -22,7 +22,7 @@ Both tables have six keys for matching similar names: Portuguese Metaphone, Open
 
 Only rows with a usable text are published. Model refusals ("Não há um significado específico…", or any text that opens by saying no meaning is known), texts that switch to English, company words and codes were removed; sentence loops were cut; accent variants were merged. Surnames need 3 or more partners in the register; only counts are published, never a full name or a company.
 
-Methodology, data quality report, data dictionary (EN and PT) and the build and validation scripts: **https://github.com/CaiqueDourado/nomes-e-sobrenomes-brasil**
+Methodology, data quality report, data dictionary (EN and PT) and the build and validation scripts: **https://github.com/CaiqueDourado/brazilian-names-surnames**
 
 ## Related datasets
 
