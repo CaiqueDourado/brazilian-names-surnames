@@ -61,6 +61,17 @@ ORDER BY sum(coalesce(ibge_frequency, 0)) DESC LIMIT 10;
 
 Every column is described in the **[data dictionary](docs/data-dictionary.md)** ([pt-BR](docs/data-dictionary.pt-BR.md)).
 
+## How a name is structured
+
+![One given name as nested JSON](docs/img/name-json.png)
+
+One row of `nomes`, the name Iracema, with its columns grouped: 6,619 company partners in the CNPJ register,
+88,145 people in the 2010 Census (rank 335, 99.8% women, births peaking in the 1950s, most common per capita in Rio
+Grande do Sul), the meaning text-davinci-002 wrote for it, its matching keys, the other names with the same
+Metaphone key (Iracima, Iraceme, Iricema…) and the surname Iracema from `sobrenomes`, joined by fingerprint.
+Full record: [`docs/example-name.json`](docs/example-name.json), built by
+[`scripts/make_json.py`](scripts/make_json.py).
+
 ## How it was built
 
 ```mermaid

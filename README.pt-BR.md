@@ -61,6 +61,17 @@ ORDER BY sum(coalesce(ibge_frequency, 0)) DESC LIMIT 10;
 
 Cada coluna está descrita no **[dicionário de dados](docs/data-dictionary.pt-BR.md)** ([EN](docs/data-dictionary.md)).
 
+## Como um nome é estruturado
+
+![Um nome em JSON aninhado](docs/img/name-json.png)
+
+Uma linha de `nomes`, o nome Iracema, com as colunas agrupadas: 6.619 sócios no cadastro CNPJ, 88.145 pessoas no
+Censo 2010 (posição 335, 99,8% mulheres, com pico de nascimentos nos anos 1950, mais comum por habitante no Rio Grande
+do Sul), o significado que o text-davinci-002 escreveu, as chaves de casamento, os outros nomes com a mesma chave
+Metaphone (Iracima, Iraceme, Iricema…) e o sobrenome Iracema de `sobrenomes`, ligado pelo fingerprint. Registro
+completo: [`docs/example-name.json`](docs/example-name.json), gerado por
+[`scripts/make_json.py`](scripts/make_json.py).
+
 ## Como foi feito
 
 ```mermaid

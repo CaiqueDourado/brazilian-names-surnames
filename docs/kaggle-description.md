@@ -18,6 +18,12 @@ Given names are the first word of company partners' names in the CNPJ register, 
 
 Both tables have six keys for matching similar names: Portuguese Metaphone, OpenRefine fingerprint (with the 2023 bug documented), stems, character n-grams and a soft normalisation.
 
+## How a name is structured
+
+![One given name as nested JSON](https://raw.githubusercontent.com/CaiqueDourado/brazilian-names-surnames/main/docs/img/name-json.png)
+
+One row of `nomes`, the name Iracema, with its columns grouped: 6,619 company partners in the CNPJ register, 88,145 people in the 2010 Census (rank 335, 99.8% women, births peaking in the 1950s, most common per capita in Rio Grande do Sul), the meaning text-davinci-002 wrote for it, its matching keys, the other names with the same Metaphone key and the surname Iracema from `sobrenomes`, joined by fingerprint. Full record: [`docs/example-name.json`](https://github.com/CaiqueDourado/brazilian-names-surnames/blob/main/docs/example-name.json), built by [`scripts/make_json.py`](https://github.com/CaiqueDourado/brazilian-names-surnames/blob/main/scripts/make_json.py).
+
 ## Cleaning
 
 Only rows with a usable text are published. Model refusals ("Não há um significado específico…", or any text that opens by saying no meaning is known), texts that switch to English, company words and codes were removed; sentence loops were cut; accent variants were merged. Surnames need 3 or more partners in the register; only counts are published, never a full name or a company.

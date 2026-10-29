@@ -1,0 +1,83 @@
+{
+  "name_id": 111323,
+  "name": "Iracema",
+  "source": "cnpj",
+  "cnpj_partners": 6619,
+  "ibge_2010": {
+    "rank": 335,
+    "frequency": 88145,
+    "percent": 0.0481,
+    "top_state": {
+      "state": "Rio Grande do Sul",
+      "per_100k": 79.7181
+    },
+    "spellings": [
+      "HIRACEMA",
+      "IRACEMAR",
+      "YRACEMA"
+    ],
+    "sex": {
+      "female": 87953,
+      "male": 147,
+      "share_female": 0.9983
+    },
+    "peak_decade": "1950s",
+    "born": {
+      "before_1930": 4950,
+      "1930s": 11343,
+      "1940s": 17872,
+      "1950s": 20978,
+      "1960s": 17554,
+      "1970s": 9513,
+      "1980s": 4214,
+      "1990s": 1233,
+      "2000s": 488
+    }
+  },
+  "meaning": "Iracema é um nome feminino de origem tupi que significa \"mãe das águas\".",
+  "model": "text-davinci-002",
+  "keys": {
+    "metaphone": "IRSM",
+    "fingerprint": "iracema",
+    "tokens": "iracem",
+    "tokens_fingerprint": "iracem",
+    "ngram": "acceemirmara",
+    "soft": "iracema"
+  },
+  "same_metaphone": [
+    {
+      "name": "Iracima",
+      "ibge_frequency": 71,
+      "cnpj_partners": null
+    },
+    {
+      "name": "Iraceme",
+      "ibge_frequency": 53,
+      "cnpj_partners": 3
+    },
+    {
+      "name": "Iricema",
+      "ibge_frequency": 52,
+      "cnpj_partners": 3
+    },
+    {
+      "name": "Yracema",
+      "ibge_frequency": 34,
+      "cnpj_partners": 8
+    },
+    {
+      "name": "Hiracema",
+      "ibge_frequency": 21,
+      "cnpj_partners": null
+    }
+  ],
+  "as_surname": [
+    {
+      "surname_id": 228711,
+      "surname": "Iracema",
+      "history": "A família Iracema é originária da cidade de Fortaleza, no estado do Ceará, no Brasil. A história da família Iracema remonta ao século XVI, quando o primeiro membro da família, Francisco de Iracema, imigrou para o Brasil. A família Iracema é uma das famílias mais antigas e influentes do Ceará. A família Iracema tem sido uma das principais forças motrizes da economia e da política do estado do Ceará.",
+      "model": "text-davinci-002",
+      "cnpj_partners": 691
+    }
+  ]
+}
