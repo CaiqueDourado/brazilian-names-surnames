@@ -178,6 +178,7 @@ The SQL Server export is not redistributed. With it, `python scripts/build.py --
 
 ## Related
 
+- Article: [Enriching sign-up data with open APIs](https://github.com/CaiqueDourado/articles/blob/main/open-apis/README.md): sex and generation from a first name, measured on this dataset.
 - [ibge-nomes](https://github.com/CaiqueDourado/ibge-nomes): the client used for the IBGE names API.
 - [DedupKit](https://github.com/CaiqueDourado/DedupKit): the matching library, with the fixed fingerprint keyer and the Portuguese phonetic key.
 - [Municípios e estados do Brasil](https://github.com/CaiqueDourado/municipios-e-estados-do-brasil): IBGE codes, Census and maps, for the state names in `ibge_top_state`.
