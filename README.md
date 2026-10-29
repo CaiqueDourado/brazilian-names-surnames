@@ -171,6 +171,7 @@ The SQL Server export is not redistributed. With it, `python scripts/build.py --
 - [DedupKit](https://github.com/CaiqueDourado/DedupKit): the matching library, with the fixed fingerprint keyer and the Portuguese phonetic key.
 - [Municípios e estados do Brasil](https://github.com/CaiqueDourado/municipios-e-estados-do-brasil): IBGE codes, Census and maps, for the state names in `ibge_top_state`.
 - [Catálogo de produtos do e-commerce brasileiro](https://github.com/CaiqueDourado/brazilian-ecommerce-products), from the same data lake.
+- [dicionario-portugues](https://github.com/CaiqueDourado/dicionario-portugues): 272 thousand Portuguese words with phonetic keys, rhymes and AI-generated texts ([Kaggle](https://www.kaggle.com/datasets/caiquedourado/dicionario-portugues)), with the same phonetic keys.
 
 ## License
 
