@@ -3,7 +3,7 @@
   "title": "Brazilian given names and surnames: frequency, IBGE data and AI-written meanings",
   "title_pt": "Nomes e sobrenomes do Brasil: frequência, dados do IBGE e significados escritos por IA",
   "kaggle_user": "caiquedourado",
-  "kaggle_title": "Nomes e Sobrenomes do Brasil (pt-BR)",
+  "kaggle_title": "Brazilian Names and Surnames",
   "kaggle_subtitle": "47k given names and 27k surnames: CNPJ counts, IBGE Census data, GPT meanings",
   "kaggle_description_file": "docs/kaggle-description.md",
   "kaggle_license": "Attribution 4.0 International (CC BY 4.0)",
