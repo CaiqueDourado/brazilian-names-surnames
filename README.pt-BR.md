@@ -185,7 +185,7 @@ A exportação do SQL Server não é redistribuída. Com ela, `python scripts/bu
 
 ## Relacionados
 
-- Artigo: [Enriquecendo cadastros com APIs abertas](https://github.com/CaiqueDourado/articles/blob/main/open-apis/README.pt-BR.md): sexo e geração a partir do primeiro nome, medidos nesta base.
+- Artigo: [Enriquecendo cadastros com APIs abertas](https://github.com/CaiqueDourado/articles/blob/main/open-apis/README.pt-BR.md) ([em inglês no Medium](https://medium.com/@caiquedourado/enriching-sign-up-data-with-open-apis-37388f435398)): sexo e geração a partir do primeiro nome, medidos nesta base.
 - [ibge-nomes](https://github.com/CaiqueDourado/ibge-nomes): o cliente usado na API de nomes do IBGE.
 - [DedupKit](https://github.com/CaiqueDourado/DedupKit): a biblioteca de casamento, com o fingerprint corrigido e a chave fonética em português.
 - [Municípios e estados do Brasil](https://github.com/CaiqueDourado/municipios-e-estados-do-brasil): códigos do IBGE, Censo e mapas, para os estados de `ibge_top_state`.
